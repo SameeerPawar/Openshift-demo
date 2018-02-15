@@ -1,0 +1,30 @@
+extends layout
+
+block content
+	div.container
+		ul.col-md-12.row
+			a(href="/users")
+				li.col-md-3.col-md-offset-1 All Users
+			a(href="/posts")
+				li.col-md-3 Posts
+			a(href="/logout")
+				li.col-md-3 Logout
+	h1 User Info
+	ul
+		li Name:
+			strong #{userdata.name}
+		li Username:
+			strong #{userdata.username}
+		li Email Address
+			strong #{userdata.email}		
+	h1 Following
+	ul
+		each friend, i in following
+			li
+				a(href="/user/#{friend.friendname}") #{friend.friendname}
+				
+	h1 Followed By
+	ul
+		each follower, i in followers
+			li
+				a(href="/user/#{follower.friendname}") #{follower.friendname}

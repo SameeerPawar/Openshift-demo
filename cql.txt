@@ -1,0 +1,7 @@
+create keyspace demo with replication = {'class':'SimpleStrategy','replication_factor':3};
+use demo;
+create table users(username varchar primary key, email varchar, name varchar, password varchar);
+create table posts(postid uuid primary key, username varchar, content varchar);
+create table userposts(username varchar, postid timeuuid , content varchar, primary key(username, postid));
+create table following(username varchar, friendname varchar, primary key(username, friendname));
+create table followedby(username varchar, friendname varchar, primary key(username, friendname));

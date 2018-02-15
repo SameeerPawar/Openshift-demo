@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	h1 Users
+	//a(href="/adduser") Add User
+	ul
+		each user, i in users
+			li 
+				div
+					a(href="/user/#{user.username}") #{user.name} 
+					| | 
+					form#formFollow(name ='follow' method = 'post' action = '/follow')
+						input(type = 'hidden' name = 'friendname' value='#{user.username}')
+						button(type='submit') follow

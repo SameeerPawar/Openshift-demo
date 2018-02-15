@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	div.container
+		ul.col-md-12.row
+			a(href="/users")
+				li.col-md-3.col-md-offset-1 All Users
+			a(href="/posts")
+				li.col-md-3 Posts
+			a(href="/logout")
+				li.col-md-3 Logout
+
+	form#formAddShout(name="addposts", method="post", action="/addposts")
+			textarea(name="body", placeholder="Post Something!", cols="50", rows="5")
+			div
+				button#btnSubmit(type="submit") Submit
+	h1 Posts
+	ul
+		each post, i in posts
+			li <strong> 
+				a(href="/posts/#{post.username}") #{post.username}: </strong>
+				| #{post.content}

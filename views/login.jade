@@ -1,0 +1,12 @@
+extends layout
+
+block content	
+	h1 Sign-in to Dwitter
+		form(method='post' action='/login')
+			p
+				input(type='text', placeholder='Enter username' name='username')
+			p
+				input(type='password', placeholder='Enter password' name='password')
+			input(type='submit')
+		- each message in flash
+			h4(style="color: red;") #{message}
