@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var cassandra = require('cassandra-driver');
 var session = require('express-session');
 var flash = require('connect-flash');
-var bcrypt = require('bcrypt');
+//var bcrypt = require('bcryptjs');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

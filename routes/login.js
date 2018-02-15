@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var cassandra = require('cassandra-driver');
-var bcrypt = require('bcrypt');
+//var bcrypt = require('bcryptjs');
 
 var client = new cassandra.Client({contactPoints : ['argus.cs.rit.edu:9042']});
 client.connect(function(err, result){
@@ -26,7 +26,7 @@ router.post('/', function(req, res){
 		}else if(result.rows.length<1){
 			req.flash('error', 'User not registered');
 			res.redirect('/login');	
-		}else if(bcrypt.compareSync(req.body.password,result.rows[0].password)){
+		}else if(req.body.password == result.rows[0].password){
 			req.session.regenerate(function(){
 				req.session.user = req.body.username;
 				req.session.authenticated = true;
