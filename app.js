@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var cassandra = require('cassandra-driver');
 var session = require('express-session');
 var flash = require('connect-flash');
-var bcrypt = require('bcrypt')
+var bcrypt = require('bcrypt');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({secret:'booyah', saveUninitialized: true, resave: true, cookie:{secure:false}}));
 app.use(flash());
-app.use(bcrypt)
+//app.use(bcrypt);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
