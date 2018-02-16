@@ -3,7 +3,7 @@ var router = express.Router();
 var cassandra = require('cassandra-driver');
 //var bcrypt = require('bcryptjs');
 
-var client = new cassandra.Client({contactPoints : ['argus.cs.rit.edu:9042']});
+var client = new cassandra.Client({contactPoints : ['98.10.43.51:8080']});
 client.connect(function(err, result){
     console.log('cassandra connected: adduser');
 });
